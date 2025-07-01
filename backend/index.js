@@ -7,10 +7,11 @@ import authRoutes from "./routes/auth.route.js";
 import path from "path";
 
 const app = express();
+dotenv.config();
 const port = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
-dotenv.config();
+
 
 app.use(express.json());
 app.use(cookieParser());
@@ -25,7 +26,13 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(port, () => {
-  connectDB();
-  console.log(`Server is running on the ${port}`);
-});
+(async () => {
+  try {
+    await connectDB();
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  } catch (error) {
+    console.error("Database connection failed:", error);
+  }
+})();

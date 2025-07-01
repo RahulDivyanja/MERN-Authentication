@@ -33,28 +33,6 @@ and a responsive frontend styled with **Tailwind CSS**.
 - **React Router DOM** – Client-side routing
 - **React Hook Form** – Form handling
 
-## 📁 Project Structure
-mern-authentication/
-├── backend/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── utils/
-│ └── server.js
-│
-├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── services/
-│ │ ├── App.js
-│ │ └── index.js
-│
-├── .env
-├── README.md
-└── package.json
-
-
 ## 🚀 Getting Started
 
 ### Prerequisites

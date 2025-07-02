@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import axios from "axios";
 
-const API_URL = "https://mern-authentication-2rwn.vercel.app";
+const API_URL = "https://mern-authentication-2rwn.vercel.app/api/user";
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create(

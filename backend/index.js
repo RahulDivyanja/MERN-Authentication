@@ -7,7 +7,7 @@ import authRoutes from "./routes/auth.route.js";
 import path from "path";
 
 const app = express();
-dotenv.config();
+dotenv.config({ path: path.resolve('./backend/.env') });
 const port = process.env.PORT || 5000;
 const __dirname = path.resolve();
 

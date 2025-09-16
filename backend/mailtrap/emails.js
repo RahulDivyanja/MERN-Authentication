@@ -8,7 +8,11 @@ import {
   PASSWORD_RESET_SUCCESS_TEMPLATE,
 } from "./emailTemplates.js";
 import { brevoClient, sender } from "../Brevo/brevo.config.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 export const sendVerificationEmail = async (
   toEmail,
   verificationToken,
@@ -53,7 +57,8 @@ export const sendVerificationEmail = async (
 
 export const sendWelcomeEmail = async (toEmail, toName) => {
   const email = new brevo.SendSmtpEmail();
-  const htmlContent = fs.readFileSync("E:\\Backend practices\\Project-loging\\backend\\mailtrap\\welcome email.html", "utf-8");
+  const filepath = path.join(__dirname, "welcome-email.html");
+  const htmlContent = fs.readFileSync(filepath, "utf-8");
 
   email.to = [{ email: toEmail, name: toName }];
   email.sender = sender;
